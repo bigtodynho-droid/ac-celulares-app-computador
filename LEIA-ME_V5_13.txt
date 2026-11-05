@@ -1,0 +1,16 @@
+AC EMPRÉSTIMOS & CELULARES — V5.13 (PACOTE DE REVISÃO)
+
+Objetivo: tornar as operações de venda e criação de financiamento atômicas junto com a baixa de estoque.
+
+IMPORTANTE:
+- Esta versão NÃO foi publicada.
+- O SQL NÃO foi executado no Supabase.
+- Não substitua os arquivos do site atual por este pacote antes dos testes.
+- O front-end depende das funções SQL ac_register_phone_sale_atomic e ac_create_phone_finance_atomic.
+- As funções SQL estão em 20261020_atomic_sales_financing.sql. Revisar e testar antes de aplicar.
+- Não compartilhe chaves secretas. config.js contém apenas a configuração de cliente já usada pelo projeto; confira antes de distribuir o ZIP.
+
+Arquivos principais:
+- app.js: chamadas RPC nos fluxos críticos.
+- 20261020_atomic_sales_financing.sql: migração preparada, não aplicada.
+- RELATORIO_AUDITORIA_V5_13.md: resultados e pendências.

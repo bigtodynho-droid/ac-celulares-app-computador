@@ -1,0 +1,8 @@
+{
+  "name": "AC Empréstimos & Celulares V5.5",
+  "short_name": "AC Empréstimos V5.5",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#0b1630"
+}

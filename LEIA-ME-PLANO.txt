@@ -1,0 +1,14 @@
+AC EMPRÉSTIMOS & CELULARES — PACOTE COMPLETO DE TESTE DE PLANOS
+
+Conteúdo: app.js com a interface de plano, index.html, style.css, config.js, manifest.json, sw.js e documentos SQL/auditoria de referência da base V5.13.
+
+IMPORTANTE
+- Este é um pacote para TESTE LOCAL, não publicar diretamente no Netlify.
+- A interface foi combinada com os arquivos de suporte V5.13; ainda precisa de teste funcional autenticado com conta de teste.
+- O banco Supabase já recebeu regras e tabela de assinaturas em uma etapa anterior, mas é necessário testar se a interface e os limites estão sincronizados.
+- O arquivo 20261020_atomic_sales_financing.sql é apenas referência da versão V5.13 e NÃO deve ser executado novamente sem revisão.
+- Nenhuma cobrança está ativa; não existe confirmação de pagamento integrada neste pacote.
+- config.js contém a configuração pública de cliente já usada no projeto. Nunca inclua chave service_role ou outros segredos no frontend.
+- Não substitua a produção até concluir os testes e revisar o relatório.
+
+Teste sugerido: descompacte numa pasta separada, confira o login, dashboard, empréstimos, estoque, vendas e financiamentos; depois teste com uma conta de teste os limites de 3 contratos e 3 celulares.
