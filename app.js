@@ -180,12 +180,12 @@
     const contractRows=allLoans.map(l=>{
       const client=(state.data.clients.find(c=>c.id===l.client_id)||{}).name||'—';
       const status=l.status==='active'?'active':l.status==='paid'?'paid':l.status==='cancelled'?'cancelled':'simulation';
-      const statusLabel=status==='active'?(partialCount?'Em andamento · parcial':'Contratado'):status==='paid'?'Quitado':status==='cancelled'?'Cancelado':'Simulação';
       const loanInstallments=state.data.installments.filter(i=>i.loan_id===l.id);
       const received=loanInstallments.reduce((sum,i)=>sum+num(i.paid_amount)+num(i.late_fee_paid_amount),0);
       const due=loanInstallments.filter(i=>i.status!=='paid'&&i.status!=='interest_only').reduce((sum,i)=>sum+Math.max(0,num(i.amount)-num(i.paid_amount)),0);
       const partialCount=loanInstallments.filter(i=>i.status==='partial').length;
-      return `<article class="contract-individual-card"" data-loan-row data-search="${esc(`${client} ${statusLabel} ${l.principal} ${l.monthly_rate}`.toLowerCase())}" data-status="${status}">
+      const statusLabel=status==='active'?(partialCount?'Em andamento · parcial':'Contratado'):status==='paid'?'Quitado':status==='cancelled'?'Cancelado':'Simulação';
+      return `<article class="contract-individual-card" data-loan-row data-search="${esc(`${client} ${statusLabel} ${l.principal} ${l.monthly_rate}`.toLowerCase())}" data-status="${status}">
         <div class="contract-individual-head"><div class="contract-client"><span class="contract-avatar">${esc(client.trim().charAt(0).toUpperCase()||'C')}</span><span><b>${esc(client)}</b><small>Contrato ${esc(String(l.id).slice(0,8))}</small></span></div><span class="contract-status status-${status}">${statusLabel}</span></div>
         <div class="contract-individual-metrics">
           <div><small>Principal</small><strong>${money(l.principal)}</strong></div>
